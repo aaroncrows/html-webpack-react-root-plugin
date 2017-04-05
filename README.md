@@ -1,0 +1,1 @@
+HTML Webpack Plugin extenstion that adds a div for the React root to the output
