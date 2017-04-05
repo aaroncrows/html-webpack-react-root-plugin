@@ -1,0 +1,12 @@
+{
+  "name": "html-webpack-react-root-plugin",
+  "version": "0.1.0",
+  "description": "HTML Webpack Plugin extenstion that adds a div for the React root to the output",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "Aaron Krause <aaronjkrause@gmail.com>",
+  "license": "MIT"
+}
