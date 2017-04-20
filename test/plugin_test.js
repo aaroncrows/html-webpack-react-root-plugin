@@ -7,28 +7,26 @@ const tagId = constants.DEFAULT_TAG_ID;
 const configWarn = constants.CONFIG_WARNING;
 
 describe('Plugin class', () => {
-  let testPlugin;
-
-  it ('should configure a plugin with passed options object', () => {
-    let testPlugin = new Plugin({ tagName: 'testTag', tagId: 'testId' });
+  it('should configure a plugin with passed options object', () => {
+    const testPlugin = new Plugin({ tagName: 'testTag', tagId: 'testId' });
 
     assert.deepEqual(testPlugin, { tagName: 'testTag', tagId: 'testId' });
   });
 
-  it ('should configure a plugin with defaults when no arguments are passed', () => {
-    let testPlugin = new Plugin();
+  it('should configure a plugin with defaults when no arguments are passed', () => {
+    const testPlugin = new Plugin();
 
     assert.deepEqual(testPlugin, { tagName, tagId });
   });
 
-  it ('should configure a plugin with the passed in string as testId', () => {
-    let testPlugin = new Plugin('testId');
+  it('should configure a plugin with the passed in string as testId', () => {
+    const testPlugin = new Plugin('testId');
 
     assert.deepEqual(testPlugin, { tagName, tagId: 'testId' });
   });
 
   it('should configure a plugin with defaults and a warning on anything else', () => {
-    let testPlugin = new Plugin(null);
+    const testPlugin = new Plugin(null);
 
     assert.deepEqual(testPlugin, { tagName, tagId, configWarn })
   });
@@ -41,21 +39,21 @@ describe('apply method', () => {
     testCompiler = (testCb) => {
       return {
         plugin(_, cb) {
-          let testCompilation = {
+          const testCompilation = {
             warnings: [],
             plugin(_, cb) {
-              let testData = { html: '', warnings: this.warnings };
+              const testData = { html: '', warnings: this.warnings };
               cb(testData, testCb);
             }
           };
           cb(testCompilation);
         }
       };
-    }
+    };
   });
 
   it('should add the appropriate tag to the data', () => {
-    let testPlugin = new Plugin();
+    const testPlugin = new Plugin();
 
     testPlugin.apply(testCompiler((err, data) => {
       assert.equal(err, null);
@@ -64,9 +62,9 @@ describe('apply method', () => {
   });
 
   it('should push an error to warnings on invalid input', () => {
-    let testPlugin = new Plugin(null);
+    const testPlugin = new Plugin(null);
 
-    testPlugin.apply(testCompiler((err, data, warnings) => {
+    testPlugin.apply(testCompiler((err, data) => {
       assert.equal(err, null);
       assert.equal(data.warnings[0], configWarn);
     }));
