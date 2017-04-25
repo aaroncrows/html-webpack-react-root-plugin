@@ -6,7 +6,13 @@
   "scripts": {
     "test": "mocha"
   },
-  "keywords": [],
+  "keywords": [
+    "webpack",
+    "plugin",
+    "html",
+    "html-webpack-plugin",
+    "react"
+  ],
   "author": "Aaron Krause <aaronjkrause@gmail.com>",
   "license": "MIT"
 }

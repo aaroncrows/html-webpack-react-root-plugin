@@ -56,8 +56,9 @@ describe('apply method', () => {
     const testPlugin = new Plugin();
 
     testPlugin.apply(testCompiler((err, data) => {
+      const hasTag = data.html.indexOf(`<${tagName} id="${tagId}"></${tagName}>`) !== -1;
       assert.equal(err, null);
-      assert.equal(data.html, '<div id=react-root></div>');
+      assert.equal(hasTag, true);
     }));
   });
 
