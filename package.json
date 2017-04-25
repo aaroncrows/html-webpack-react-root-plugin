@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-react-root-plugin",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "description": "HTML Webpack Plugin extenstion that adds a div for the React root to the output",
   "main": "index.js",
   "scripts": {
