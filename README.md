@@ -15,7 +15,7 @@ This adds an element (a div with "root" as the id by default) to the HTML file g
 
 ```javascript
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ReactRootPlugin = require('html-webpack-root-plugin');
+const ReactRootPlugin = require('html-webpack-react-root-plugin');
 const webpackConfig = {
   entry: 'index.js',
   output: {
